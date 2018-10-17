@@ -24,8 +24,22 @@ data-512-a1/
 ```
 
 ## Source Data
+The data used for this project came from two different Wikimedia REST APIs that provide data on Wikipedia page traffic. Documentation for both APIs can be found at the links shown in the subsection below. The first API is referred to throughout this project as the Pagecount or Legacy data; this is the older API which contains data from 12/2007 through 07/2016. The second API, referred to throughout as the Pageviews or New data is a new API which contains data on traffic from 12/2007 through the last month (September 2018 at the time of this writing).
 
-## API Documentation
+Below are a few relevant notes about the data from both APIs:
+
+ - Content for both APIs is licensed under the CC-BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/) and GFDL (https://www.gnu.org/copyleft/fdl.html) licenses
+ - Terms of Use & Conditions for the APIs can be found here: https://www.mediawiki.org/wiki/REST_API#Terms_and_conditions
+ - The Pageviews API allows you to filter the web traffic data based on type of user (e.g. actual user, web crawlers, etc.). For this analysis I only looked at user data. The Pagecount API does not allow this filtering, so data from that API includes crawlers/spiders.
+ - Both APIs limit clients to 200 requests
+
+### API Documentation
+Below are links to relevant documentation and the API endpoints for both data sources
+
+ - Pagecount (Legacy) API Documentation: https://wikitech.wikimedia.org/wiki/Analytics/AQS/Legacy_Pagecounts
+ - Pagecount (Legacy) API Endpoint: https://wikimedia.org/api/rest_v1/#!/Pagecounts_data_(legacy)/get_metrics_legacy_pagecounts_aggregate_project_access_site_granularity_start_end
+ - Pageviews (New) API Documentation: https://wikitech.wikimedia.org/wiki/Analytics/AQS/Pageviews
+ - Pageviews (New) API Endpoint: https://wikimedia.org/api/rest_v1/#!/Pageviews_data/get_metrics_pageviews_aggregate_project_access_agent_granularity_start_end
 
 ## Results
 The results of this analysis include a final .csv with processed data and a timeseries plot showing Wikipedia traffic from desktop, mobile, and total views for both the legacy API and the current API. The .csv contains the following fields:
